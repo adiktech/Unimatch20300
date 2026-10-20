@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniMatch Global — Умный подбор ВУЗов с анализом совместимости</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%); }
+        .card-hover:hover { transform: translateY(-3px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl shadow-md">U</div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-gray-900">UniMatch <span class="text-indigo-600">Global</span></span>
+                    <p class="text-xs text-gray-500 font-medium">Умный подбор ВУЗов с ИИ-анализом</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
+                <a href="#wizard" class="hover:text-indigo-600 transition">Подбор</a>
+                <a href="#catalog" class="hover:text-indigo-600 transition">Каталог ВУЗов</a>
+                <a href="#methodology" class="hover:text-indigo-600 transition">Методология</a>
+            </nav>
+            <div>
+                <a href="#wizard" class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-semibold hover:bg-indigo-700 transition shadow-sm">Начать подбор</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium mb-6 border border-white/20">
+                <i class="fa-solid fa-sparkles text-yellow-300"></i>
+                <span>Интеллектуальная система с детальным анализом совместимости</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                «Делай желаемое вместе с нами»
+            </h1>
+            <p class="text-lg sm:text-xl text-indigo-100 mb-10 max-w-2xl mx-auto font-normal">
+                Мгновенный подбор университетов мира с персональным обоснованием: узнайте точно, почему каждый ВУЗ подходит именно вашему профилю.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#wizard" class="px-8 py-4 bg-white text-indigo-600 font-bold rounded-xl shadow-lg hover:bg-indigo-50 transition transform hover:-translate-y-0.5">
+                    Заполнить анкету
+                </a>
+                <a href="#catalog" class="px-8 py-4 bg-indigo-700/50 hover:bg-indigo-700 text-white font-bold rounded-xl border border-white/20 transition">
+                    Смотреть все ВУЗы
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- Wizard / Application Form -->
+        <section id="wizard" class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-10">
+            <div class="max-w-3xl mx-auto mb-10 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-sliders text-indigo-600"></i> Анкетная форма абитуриента
+                </h2>
+                <p class="text-gray-500 text-sm sm:text-base">Введите ваши показатели SAT, IELTS, желаемую специальность и достижения для генерации персонального отчета.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- SAT & IELTS -->
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Балл SAT (400 - 1600)</label>
+                        <input type="number" id="satInput" min="400" max="1600" value="1420" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-lg font-medium" placeholder="Например: 1450">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Балл IELTS (0.0 - 9.0)</label>
+                        <input type="number" step="0.5" min="0" max="9" id="ieltsInput" value="7.5" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-lg font-medium" placeholder="Например: 7.5">
+                    </div>
+                </div>
+
+                <!-- Major & Extracurriculars -->
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Желаемая специальность</label>
+                        <select id="majorInput" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-base bg-white">
+                            <option value="Computer Science">Computer Science & AI</option>
+                            <option value="Engineering">Engineering & Robotics</option>
+                            <option value="Business">Business & Finance</option>
+                            <option value="Medicine">Medicine & Biomedical</option>
+                            <option value="Law">Law & International Relations</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Главное достижение / Внешкольная активность</label>
+                        <select id="achievementInput" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-base bg-white">
+                            <option value="Olympiad">🏆 Международная / Республиканская олимпиада</option>
+                            <option value="Research">🔬 Научная публикация / Исследовательский проект</option>
+                            <option value="Tech">💻 IT-стартап или крупный open-source проект</option>
+                            <option value="Leadership">⭐ Лидерство в студенческом самоуправлении / Клуб</option>
+                            <option value="Volunteer">🤝 Масштабное волонтёрство и социальный impact</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button onclick="updateMatching()" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 text-lg flex items-center justify-center gap-2 mx-auto">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Рассчитать совместимость и показать ВУЗы
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="catalog" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Рекомендованные Университеты</h2>
+                    <p class="text-gray-500 text-sm">С детальным ИИ-анализом совместимости вашего профиля</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="text-sm font-medium text-gray-600">Фильтр категории:</label>
+                    <select id="categoryFilter" onchange="filterUniversities()" class="px-4 py-2 rounded-xl border border-gray-300 bg-white text-sm font-medium focus:ring-2 focus:ring-indigo-500 outline-none">
+                        <option value="ALL">Все категории</option>
+                        <option value="Ambitious">🔥 Амбициозные</option>
+                        <option value="Competitive">🎯 Конкурентные</option>
+                        <option value="Safer">🛡️ Надежные</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- University Cards Container -->
+            <div id="universitiesContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Динамически заполняется через JS -->
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="methodology" class="bg-indigo-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+            <h3 class="text-2xl font-bold mb-4">О методологии оценки UniMatch AI</h3>
+            <p class="text-indigo-200 mb-8 max-w-3xl">
+                Наша система не просто сопоставляет баллы, а строит глубокий комплексный анализ профиля абитуриента, сопоставляя их с требованиями топовых приемных комиссий мира.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <div class="text-xl font-bold mb-2 text-yellow-300">🔥 Амбициозные</div>
+                    <p class="text-sm text-indigo-100">ВУЗы с высочайшим конкурсом. Требуют выдающихся олимпиад или баллов выше среднего медианного значения.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <div class="text-xl font-bold mb-2 text-blue-300">🎯 Конкурентные</div>
+                    <p class="text-sm text-indigo-100">Ваш профиль идеально вписывается в 25%-75% перцентиль зачисленных студентов прошлых лет.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <div class="text-xl font-bold mb-2 text-green-300">🛡️ Надежные</div>
+                    <p class="text-sm text-indigo-100">Ваши академические показатели и достижения превосходят минимальные пороги отбора с высоким шансом успеха.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-10 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            <p class="font-bold text-gray-800 mb-1">UniMatch Global Platform © 2026</p>
+            <p>«Делай желаемое вместе с нами» — Интеллектуальный помощник для поступления в вузы мечты.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // База данных университетов
+        const universities = [
+            {
+                name: "Massachusetts Institute of Technology (MIT)",
+                country: "США 🇺🇸",
+                logo: "🏛️",
+                satReq: 1520,
+                ieltsReq: 7.5,
+                acceptance: "4%",
+                majors: ["Computer Science", "Engineering"],
+                preferredAch: ["Olympiad", "Research", "Tech"]
+            },
+            {
+                name: "Stanford University",
+                country: "США 🇺🇸",
+                logo: "🌲",
+                satReq: 1510,
+                ieltsReq: 7.5,
+                acceptance: "3.9%",
+                majors: ["Computer Science", "Business", "Engineering"],
+                preferredAch: ["Tech", "Leadership", "Research"]
+            },
+            {
+                name: "University of Oxford",
+                country: "Великобритания 🇬🇧",
+                logo: "📚",
+                satReq: 1490,
+                ieltsReq: 7.5,
+                acceptance: "14%",
+                majors: ["Law", "Medicine", "Engineering", "Computer Science"],
+                preferredAch: ["Olympiad", "Research"]
+            },
+            {
+                name: "National University of Singapore (NUS)",
+                country: "Сингапур 🇸🇬",
+                logo: "🦁",
+                satReq: 1400,
+                ieltsReq: 7.0,
+                acceptance: "7%",
+                majors: ["Computer Science", "Business", "Engineering"],
+                preferredAch: ["Olympiad", "Tech", "Leadership"]
+            },
+            {
+                name: "Technical University of Munich (TUM)",
+                country: "Германия 🇩🇪",
+                logo: "⚙️",
+                satReq: 1300,
+                ieltsReq: 6.5,
+                acceptance: "8%",
+                majors: ["Engineering", "Computer Science"],
+                preferredAch: ["Tech", "Research"]
+            },
+            {
+                name: "University of Toronto",
+                country: "Канада 🇨🇦",
+                logo: "🍁",
+                satReq: 1350,
+                ieltsReq: 6.5,
+                acceptance: "43%",
+                majors: ["Computer Science", "Business", "Medicine", "Law"],
+                preferredAch: ["Leadership", "Volunteer", "Research"]
+            }
+        ];
+
+        function calculateMatch(uni, userSat, userIelts, userMajor, userAch) {
+            let reasons = [];
+            let category = "";
+            let categoryName = "";
+            let badgeClass = "";
+
+            // Проверка специальности
+            const hasMajorMatch = uni.majors.includes(userMajor);
+            if (hasMajorMatch) {
+                reasons.push(`🎓 <b>Специальность:</b> Факультет ${userMajor} в данном ВУЗе входит в мировой топ и полностью соответствует вашему выбору.`);
+            } else {
+                reasons.push(`⚠️ <b>Специальность:</b> Данное направление не является профильным для этого ВУЗа, однако базовая подготовка сильна.`);
+            }
+
+            // Проверка SAT
+            const satDiff = userSat - uni.satReq;
+            if (satDiff >= 50) {
+                category = "Safer";
+                categoryName = "🛡️ Надежные (Высокий шанс)";
+                badgeClass = "bg-green-100 text-green-800 border-green-200";
+                reasons.push(`📈 <b>SAT (${userSat}):</b> Ваш балл выше медианного показателя ВУЗа (${uni.satReq}), что дает сильное преимущество в академическом отборе.`);
+            } else if (satDiff >= -40) {
+                category = "Competitive";
+                categoryName = "🎯 Конкурентные (Подходящие)";
+                badgeClass = "bg-blue-100 text-blue-800 border-blue-200";
+                reasons.push(`🎯 <b>SAT (${userSat}):</b> Ваш балл находится точно в пределах целевого диапазона зачисленных студентов (${uni.satReq} ± медиана).`);
+            } else {
+                category = "Ambitious";
+                categoryName = "🔥 Амбициозные (Высокий риск)";
+                badgeClass = "bg-yellow-100 text-yellow-800 border-yellow-200";
+                reasons.push(`🔥 <b>SAT (${userSat}):</b> Ваш балл ниже требований ВУЗа (${uni.satReq}). Потребуется компенсация за счет выдающихся внешкольных достижений.`);
+            }
+
+            // Проверка IELTS
+            if (userIelts >= uni.ieltsReq) {
+                reasons.push(`🗣️ <b>Языковой тест (IELTS ${userIelts}):</b> Полностью удовлетворяет или превосходит минимальный порог ВУЗа (${uni.ieltsReq}).`);
+            } else {
+                reasons.push(`⚠️ <b>Языковой тест (IELTS ${userIelts}):</b> Ниже требований ВУЗа (${uni.ieltsReq}). Рекомендуется улучшить результат.`);
+            }
+
+            // Проверка достижений
+            if (uni.preferredAch.includes(userAch)) {
+                reasons.push(`🏆 <b>Внешкольное достижение:</b> Ваш опыт (${getAchievementLabel(userAch)}) высоко ценится приемной комиссией этого университета и усиливает заявку.`);
+            } else {
+                reasons.push(`💡 <b>Внешкольное достижение:</b> Учтен ваш профиль активности (${getAchievementLabel(userAch)}), который гармонично дополняет общую заявку.`);
+            }
+
+            return { category, categoryName, badgeClass, reasons };
+        }
+
+        function getAchievementLabel(ach) {
+            const map = {
+                "Olympiad": "Международная олимпиада",
+                "Research": "Научные исследования",
+                "Tech": "IT / Проекты",
+                "Leadership": "Лидерство",
+                "Volunteer": "Волонтёрство"
+            };
+            return map[ach] || ach;
+        }
+
+        function updateMatching() {
+            const sat = parseInt(document.getElementById('satInput').value) || 1200;
+            const ielts = parseFloat(document.getElementById('ieltsInput').value) || 6.5;
+            const major = document.getElementById('majorInput').value;
+            const achievement = document.getElementById('achievementInput').value;
+
+            const container = document.getElementById('universitiesContainer');
+            container.innerHTML = '';
+
+            let html = '';
+            universities.forEach(uni => {
+                const match = calculateMatch(uni, sat, ielts, major, achievement);
+                
+                html += `
+                    <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 card-hover flex flex-col justify-between" data-category="${match.category}">
+                        <div>
+                            <div class="flex items-start justify-between gap-4 mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-2xl shadow-inner">${uni.logo}</div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-900">${uni.name}</h3>
+                                        <p class="text-xs text-gray-500 font-medium">${uni.country} • Конкурс: ${uni.acceptance}</p>
+                                    </div>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold border ${match.badgeClass}">
+                                    ${match.categoryName}
+                                </span>
+                            </div>
+
+                            <div class="bg-indigo-50/50 rounded-xl p-4 mb-4 border border-indigo-100/60">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-900 mb-2 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info text-indigo-600"></i> Почему этот университет вам подходит:
+                                </h4>
+                                <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+                                    ${match.reasons.map(r => `<li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">•</span> <span>${r}</span></li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                            <span>Медианный SAT: <b>${uni.satReq}</b></span>
+                            <a href="#wizard" class="font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+                                Пересчитать <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            filterUniversities();
+        }
+
+        function filterUniversities() {
+            const filterValue = document.getElementById('categoryFilter').value;
+            const cards = document.querySelectorAll('#universitiesContainer > div');
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filterValue === 'ALL' || category === filterValue) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Запуск при загрузке
+        window.onload = function() {
+            updateMatching();
+        };
+    </script>
+</body>
+</html>
